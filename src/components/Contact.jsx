@@ -46,6 +46,7 @@ const Contact = () => {
 
         <div id="contact-form" name='contact-form' className='grid sm:grid-cols-2 space-x-28 gap-4 px-4 my-10 mx-10'>
   <iframe 
+    title='Location'
     className="mt-24"
     width="100%" 
     height="80%" 
