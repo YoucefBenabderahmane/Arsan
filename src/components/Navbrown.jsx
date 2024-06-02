@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebookF, FaShoppingBag, FaSearch, FaArrowUp } from 'react-icons/fa';
 import MyLogo2 from '../assets/MyLogo2.png';
-import { Link } from 'react-scroll';
-import { NavLink, useLocation } from 'react-router-dom';
+
+import { NavLink} from 'react-router-dom';
 
 
 const Navbar = ({ isHomeSection }) => {
@@ -11,7 +11,7 @@ const Navbar = ({ isHomeSection }) => {
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const navRef = useRef(null);
-  const location = useLocation();
+
 
   const links = [
     { path: '/home#home', name: 'Home' },
@@ -22,8 +22,8 @@ const Navbar = ({ isHomeSection }) => {
   ];
 
 
-  const isPortfoPage = location.pathname === '/portfo';
 
+  
   const handleScroll = () => {
     setShowScrollButton(window.scrollY > 0);
   };
