@@ -21,7 +21,7 @@ const Footer = () => {
             <img src={logo} alt="HappyRider" className="w-44 h-24 mx-6" />
             <div className="border-t border-gray-700 my-8"></div>
           </div>
-          <nav className="flex space-x-8 text-lg mx-6">
+          <nav className="flex space-x-6 text-lg mx-6">
             {links.map(link => (
               <Link key={link.id} to={link.id} smooth={true} duration={700} delay={200} className="hover:underline cursor-pointer">
                 {link.name}

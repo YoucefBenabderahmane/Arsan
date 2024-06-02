@@ -7,7 +7,7 @@ import Partitions from '../assets/Partitions.png'
 import Fences2 from '../assets/Fences2.png'
 import Footer from './Footer';
 
-const Portfo = () => {
+const PorService = () => {
     return (
 
         <div name='portfo' className='w-full font-alga md:h-auto text-gray-900'>
@@ -15,8 +15,8 @@ const Portfo = () => {
             <div className='max-w-[1300px] mx-auto flex-col justify-center p-8'>
 
 
-                <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
-                    <div className='grid text-center mx-10 items-center sm:text-left sm:text-sm'>
+            <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 mt-64 mb-10">
+          <div className='grid text-center mx-2 items-center sm:text-left sm:text-sm'>
                         <h1 className='text-4xl my-4'>Fans</h1>
                         <p className='text-xl text-gray-600'>
                             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
@@ -31,26 +31,27 @@ const Portfo = () => {
                             Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed
                         </p>
                     </div>
+
                     <div className='relative w-full h-[400px] my-20'>
                         <img
                             src={Fans}
                             alt='Horse Racing'
-                            className='absolute top-0 left-1/4 w-[80%] h-[100%] object-cover  transition-transform duration-300'
+                            className='absolute top-0  w-[100%] h-[100%] object-cover  transition-transform duration-300'
                         />
                     </div>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
-                    <div className='relative w-full h-[400px] mx-4 my-20'>
+                <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 mt-64 mb-10">
+                <div className='relative w-full h-[400px] my-20'>
                         <img
                             src={tainer1}
                             alt='Horse Racing'
-                            className='absolute -top-10 left-0 w-[80%] h-[150%] object-cover  transition-transform duration-300'
+                            className='absolute top-0  w-[100%] h-[100%] object-cover  transition-transform duration-300'
                         />
 
                     </div>
-                    <div className='grid text-center mx-20 items-center sm:text-left sm:text-sm'>
-                        <h1 className='text-4xl my-4'>HORSE SOLORIUM</h1>
+                    <div className='grid text-center mx-2 items-center sm:text-left sm:text-sm'>
+                        <h1 className='text-4xl my-4'>HORS SOLARIUM</h1>
                         <p className='text-xl text-gray-600'>
                             A horse solarium oers several benets for equine health and
                             well-being: Relaxation and Recovery, Faster Drying, Muscle Elasticity,
@@ -66,7 +67,7 @@ const Portfo = () => {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
-                    <div className='grid text-center mx-20 items-center sm:text-left sm:text-sm'>
+                <div className='grid text-center mx-2 items-center sm:text-left sm:text-sm'>
                         <h1 className='text-4xl my-4'>RUBBER FLOOR BRICKS</h1>
                         <p className='text-xl text-gray-600'>
                             Thickness: 15 mm to 45 mm
@@ -84,7 +85,7 @@ const Portfo = () => {
 
                             src={bricks}
                             alt='Horse Racing'
-                            className='absolute top-0 left-1/4 w-[80%] h-[100%] object-cover transition-transform duration-300'
+                            className='absolute top-0  w-[100%] h-[100%] object-cover  transition-transform duration-300'
                         />
 
                     </div>
@@ -95,7 +96,7 @@ const Portfo = () => {
                         <img
                             src={Fences2}
                             alt='Horse Racing'
-                            className='absolute top-0 left-0 w-[80%] h-[80%] object-cover  transition-transform duration-300'
+                            className='absolute top-0 -left-2 w-[100%] h-[100%] object-cover  transition-transform duration-300'
                         />
                         <img
                             src={FENCES1}
@@ -103,7 +104,7 @@ const Portfo = () => {
                             className='absolute top-44 right-0 w-[75%] h-[80%] object-cover hover:scale-110 transition-transform duration-300'
                         />
                     </div>
-                    <div className='grid text-center mx-20 items-center sm:text-left sm:text-sm'>
+                    <div className='grid text-center mx-2 items-center sm:text-left sm:text-sm'>
                         <h1 className='text-4xl my-4'>FENCES</h1>
                         <p className='text-xl text-gray-600'>
                             ARSAN International is a leading provider of top-tier horse racing track construction services,
@@ -122,7 +123,7 @@ const Portfo = () => {
                             className='absolute top-0 left-0 w-[80%] h-[80%] object-cover  transition-transform duration-300'
                         />
                     </div>
-                    <div className='grid text-center mx-20 items-center sm:text-left sm:text-sm'>
+                    <div className='grid text-center mx-2 items-center sm:text-left sm:text-sm'>
                         <h1 className='text-4xl my-4'>PARTITIONS</h1>
                         <p className='text-xl text-gray-600'>
                             Size
@@ -147,4 +148,4 @@ const Portfo = () => {
     );
 }
 
-export default Portfo;
+export default PorService;

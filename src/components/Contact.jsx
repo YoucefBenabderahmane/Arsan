@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PiHeadsetLight } from "react-icons/pi";
 import { PiMapPinLight } from "react-icons/pi";
 import { LuChevronDown } from 'react-icons/lu'
 import { GoClock } from "react-icons/go";
+import { Link } from 'react-scroll';
 
 const Contact = () => {
+
+  const [nav, setNav] = useState(false)
+  const handleClick = () => setNav(!nav)
+  
   return (
     <div name='Contact' className='w-full h-auto flex justify-center items-center p-8'>
       <div className=' max-w-[1300px] mx-auto flex-col justify-center p-8'>
@@ -28,10 +33,12 @@ const Contact = () => {
   </div>
 
   <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
-    <PiMapPinLight  className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]"/>
+    <PiMapPinLight  className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]"/>                
     <h2 className="text-3xl font-alga text-gray-900 my-2">Address</h2>
     <p className="text-lg text-gray-600">AHMED BIN ALI ST, BIN OMRAN,<br />DOHA, QATAR</p>
-    <a href="contact-form" className="text-blue-500 text-lg mt-2">Check Location</a>
+    <Link onClick={handleClick} to="contact-form" smooth={true} duration={800} delay={100} className="text-blue-500 text-lg mt-2">
+    <p>Check Location</p>
+    </Link>
   </div>
 
   <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
@@ -39,12 +46,15 @@ const Contact = () => {
     <h2 className="text-3xl font-alga text-gray-900 my-2">Get In Touch</h2>
     <p className="text-lg text-gray-600">Telephone: +(974) 5569 3999</p>
     <p className="text-lg text-gray-600">Email: arsan-qa@outlook.com</p>
-    <a href="contact-form" className="text-blue-500 text-lg mt-2">Contact Form</a>
+    <Link onClick={handleClick} to="contact-form" smooth={true} duration={800} delay={100} className="text-blue-500 text-lg mt-2">
+    <p className="text-blue-500 text-lg mt-2">Contact Form</p>
+    </Link>
+  
   </div>
 
 </div>
 
-        <div id="contact-form" name='contact-form' className='grid sm:grid-cols-2 space-x-28 gap-4 px-4 my-10 mx-10'>
+        <div id="contact-form" name='contact-form' className="grid grid-cols-1 sm:grid-cols-2 gap-20">
   <iframe 
     title='Location'
     className="mt-24"

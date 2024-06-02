@@ -1,23 +1,33 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import Mylogo from '../assets/MyLogo.png';
-import Mylogo2 from '../assets/MyLogo2.png';
-import { FaArrowUp, FaFacebookF, FaInstagram, FaLinkedin, FaSearch, FaShoppingBag, FaWhatsapp } from 'react-icons/fa';
+import React, { useState, useRef, useEffect } from 'react';
+import MyLogo from '../assets/MyLogo.png';
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebookF, FaShoppingBag, FaSearch, FaArrowUp } from 'react-icons/fa';
+import MyLogo2 from '../assets/MyLogo2.png';
 import { Link } from 'react-scroll';
+import { useLocation } from 'react-router-dom';
+
 
 const Navbar = ({ isHomeSection }) => {
+
+
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const navRef = useRef(null);
   const location = useLocation();
 
+  const links = [
+    { id: 'home', name: 'Home' },
+    { id: 'Services', name: 'Services' },
+    { id: 'about', name: 'About' },
+    { id: 'Work', name: 'Work' },
+    { id: 'Contact', name: 'Contacts' },
+  ];
+
+  const isPortfoPage = location.pathname === '/portfo';
+
   const handleScroll = () => {
     setShowScrollButton(window.scrollY > 0);
   };
 
-  const handleNavToggle = () => {
-    setNavOpen(!navOpen);
-  };
 
   const handleClickOutside = (event) => {
     if (navRef.current && !navRef.current.contains(event.target)) {
@@ -41,29 +51,40 @@ const Navbar = ({ isHomeSection }) => {
     });
   };
 
-  const links = [
-    { id: 'home', name: 'Home' },
-    { id: 'Services', name: 'Services' },
-    { id: 'about', name: 'About Us' },
-    { id: 'Work', name: 'Work' },
-    { id: 'Contact', name: 'Contacts' },
-  ];
+  const handleNavToggle = () => {
+    setNavOpen(!navOpen);
+  };
 
-  // Check if the current path is the Portfo page
-  const isPortfoPage = location.pathname === '/portfo';
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 640); // Define your breakpoint here, e.g., 640px
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
-    <div className='absolute w-full h-[80px] flex justify-between items-center just px-4 mt-14 my-2 bg-transparent text-white' ref={navRef}>
+    <div className='absolute w-full h-[80px] flex justify-between items-center px-4 mt-14 my-2 bg-transparent text-white overflow-hidden' ref={navRef}>
       <div>
         <img
-          src={Mylogo}
+          src={MyLogo}
           alt='Logo'
-          className="w-52 h-auto mt-2 mx-20"
+          className="w-32 h-auto mt-2 sm:w-52 mx-4 sm:mx-20 hidden sm:block"
         />
       </div>
 
-      {/* Menu */}
-      <ul className='hidden md:flex text-2xl font-alga space-x-6 mx-6'>
+      <ul className='md:flex sm:flex text-lg md:text-xl sm:text-xl font-alga -space-x-4 sm:space-x-4 mx-0 sm:mx-6 flex'>
         {links.map((link) => (
           <li key={link.id} className="relative">
             <Link to={link.id} smooth={true} duration={700} delay={200} className={`hover:underline ${isPortfoPage ? 'text-[#763721]' : 'text-white'}`}>
@@ -73,18 +94,25 @@ const Navbar = ({ isHomeSection }) => {
         ))}
       </ul>
 
+
+
+
       {/* Navbar icons */}
-      <div className='flex items-center space-x-6 mx-24'>
-        <FaShoppingBag className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-xl cursor-pointer`} size={24} />
-        <FaSearch className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-xl cursor-pointer`} size={24} />
+      <div className='flex items-start sm:space-x-6 mx-2 ml-2 sm:mx-24'>
+        {isSmallScreen ? null : (
+          <>
+            <FaShoppingBag className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-lg sm:text-xl cursor-pointer`} size={20} />
+            <FaSearch className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-lg sm:text-xl cursor-pointer`} size={20} />
+          </>
+        )}
         <button
-          className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-xl cursor-pointer`}
+          className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-lg sm:text-xl cursor-pointer`}
           size={24}
           onClick={handleNavToggle}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8"
+            className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -102,8 +130,9 @@ const Navbar = ({ isHomeSection }) => {
         </button>
       </div>
 
+
       {/* Side Navigation */}
-      <div className={`grid fixed top-0 right-0 h-full w-[440px] bg-white text-gray-800 transition-transform transform ${navOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ transitionDuration: '1s' }}>
+      <div className={`fixed top-0 right-0 h-full w-full max-w-[340px] xs:max-w-[250px] xs:right-0 bg-white text-gray-800 transition-transform transform ${navOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ transitionDuration: '1s' }}>
         <button
           onClick={handleNavToggle}
           className="absolute top-6 right-6 bg-gray-200 text-black p-3 rounded-full hover:bg-gray-300 transition-transform transform hover:rotate-180"
@@ -123,18 +152,19 @@ const Navbar = ({ isHomeSection }) => {
             />
           </svg>
         </button>
+
         <div className="flex flex-col items-center mt-12 space-y-6">
-          <img src={Mylogo2} alt="HappyRider Logo" className="w-30 h-24" />
+          <img src={MyLogo2} alt="HappyRider Logo" className="w-20 h-20 sm:w-30 sm:h-24" />
         </div>
         <div>
-          <ul className="ml-10 my-16 space-y-12">
+          <ul className="ml-6 my-16 space-y-6 sm:space-y-12">
             <li>
               <a
                 href="https://www.facebook.com/ArsanInternational"
                 aria-label="Facebook"
                 className="flex items-center text-black hover:text-gray-400">
-                <FaFacebookF size={24} />
-                <span className="ml-6 text-2xl font-aboit">Facebook</span>
+                <FaFacebookF size={20} />
+                <span className="ml-4 sm:ml-6 text-xl sm:text-2xl font-alga">Facebook</span>
               </a>
             </li>
 
@@ -143,8 +173,8 @@ const Navbar = ({ isHomeSection }) => {
                 href="https://api.whatsapp.com/send?phone=%2B97455693999&context=ARD5ZhrH0wEkMRcqfy06LkeJR0ZOcbwCyrfRxEIwhhhIgWjGWKsrigNsyBlbABFyl6Kl7OM1ayjyo72Q9tucNYBwUr5VdmD3F9ror_TtWg3hehD3iAX5JGdQmvLElXiKW4XJ-G9Zg-Ty00g3w9T8UlI5bQ&source=FB_Page&app=facebook&entry_point=page_cta"
                 aria-label="Whatsapp"
                 className="flex items-center text-black hover:text-gray-400">
-                <FaWhatsapp size={26} />
-                <span className="ml-6 text-2xl font-alga">Whatsapp</span>
+                <FaWhatsapp size={22} />
+                <span className="ml-4 sm:ml-6 text-xl sm:text-2xl font-alga">Whatsapp</span>
               </a>
             </li>
 
@@ -153,8 +183,8 @@ const Navbar = ({ isHomeSection }) => {
                 href="https://www.linkedin.com/company/arsan-international-trading-contracting"
                 aria-label="Linkedin"
                 className="flex items-center text-black hover:text-gray-400">
-                <FaLinkedin size={24} />
-                <span className="ml-6 text-2xl font-alga">Linkedin</span>
+                <FaLinkedin size={20} />
+                <span className="ml-4 sm:ml-6 text-xl sm:text-2xl font-alga">Linkedin</span>
               </a>
             </li>
 
@@ -163,39 +193,38 @@ const Navbar = ({ isHomeSection }) => {
                 href="https://www.instagram.com/arsan.intl/"
                 aria-label="Instagram"
                 className="flex items-center text-black hover:text-gray-400">
-                <FaInstagram size={24} />
-                <span className="ml-6 text-2xl font-alga">Instagram</span>
+                <FaInstagram size={20} />
+                <span className="ml-4 sm:ml-6 text-xl sm:text-2xl font-alga">Instagram</span>
               </a>
             </li>
-
           </ul>
         </div>
         <hr className="border-gray-300 my-4 w-3/4 mx-auto" />
 
         <div className="text-center">
-          <p className="ml-6 mt-20 text-2xl text-black font-alga ">
-            <a href="tel:+974 5569 3999">+974 5569 3999</a>
+          <p className="ml-4 sm:ml-6 mt-10 text-xl sm:text-2xl text-black font-alga">
+            <a href="tel:+97455693999">+974 5569 3999</a>
           </p>
-          <p className="ml-6 my-4 text-xl text-gray-600 font-alga">
-            <a href="mailto: ARSAN-QA@OUTLOOK.COM" >ARSAN-QA@OUTLOOK.COM</a>
+          <p className="ml-4 sm:ml-6 my-4 text-lg sm:text-xl text-gray-600 font-alga">
+            <a href="mailto:ARSAN-QA@OUTLOOK.COM">ARSAN-QA@OUTLOOK.COM</a>
           </p>
         </div>
-
       </div>
-
       {/* Scroll-to-top button */}
       {!isHomeSection && showScrollButton && (
         <div className="fixed bottom-4 right-4 z-10">
           <button
             onClick={scrollToTop}
-            className="flex bg-black text-white p-4 rounded-full shadow-md hover:bg-[#763721] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            className="flex bg-black text-white p-3 sm:p-4 rounded-full shadow-md hover:bg-[#763721] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
           >
-            <FaArrowUp />
+            <FaArrowUp size={20} />
           </button>
         </div>
       )}
     </div>
   );
 };
+
+
 
 export default Navbar;

@@ -27,10 +27,10 @@ const Services = () => {
         <div className='grid sm:grid-cols-2 gap-4 px-4 mx-10 my-10'>
           <div className='sm:text-left text-center sm:text-4xl font-alga'>
             <p className='text-xl font-alga'>start riding</p>
-            <h1 className='text-4xl my-7 '> Full Services <br /> Arsan International <br /> Company</h1>
+            <h1 className='text-4xl my-7'> Full Services <br /> Arsan International <br /> Company</h1>
           </div>
           <div className='text-center sm:text-left sm:text-sm'>
-            <p className='text-justify font-alga my-10 mx-8 text-lg text-gray-800'>
+            <p className='text-justify font-alga my-10 mx-2 text-lg text-gray-800'>
             Discover Arsan International, Qatar's premier horse stud design company. Our expert team creates bespoke equestrian facilities tailored to your needs.
              From state-of-the-art training halls to luxurious swimming pools, every detail is meticulously crafted.
              Experience the pinnacle of equestrian luxury with Arsan International.

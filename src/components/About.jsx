@@ -45,8 +45,8 @@ const About = () => {
           </div>
         </div>
         <div className='grid sm:grid-cols-2 gap-4 px-4 my-10 mx-10'>
-          <div className='text-justify text-gray-800 mt-20 px-4 sm:text-sm sm:text-left '>
-            <p className='text-justify text-lg font-alga'>A Qatari company specialized in designing and applicated horse stud in the State of Qatar. Arsan
+          <div className='text-justify text-gray-800 mt-20 px-0 sm:text-sm sm:text-left '>
+            <p className='text-justify text-lg font-alga '>A Qatari company specialized in designing and applicated horse stud in the State of Qatar. Arsan
               International Company is a unique company of its kind in the region, as the idea of launching the
               company came to achieve architectural creativity in the world of horse stud.
               Arsan Company designs dierent kind of stalls with the smallest details, step by step, until the
@@ -69,7 +69,7 @@ const About = () => {
             <img
               src={freeabout}
               alt='Horse Racing'
-              className='absolute top-[-50%] left-[40%] w-[70%] h-auto object-cover'
+              className='absolute top-[-20%] left-[40%] w-[70%] h-auto object-cover'
             />
             <img
               src={serviceabout}
