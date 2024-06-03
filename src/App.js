@@ -12,6 +12,7 @@ import Portfo from "./components/Portfo";
 import Navbrown from './components/Navbrown';
 import PorService from './components/PorService';
 import { Element, scroller } from 'react-scroll';
+import Blog from './components/Blog';
 
 function MainPage() {
   const location = useLocation();
@@ -42,7 +43,10 @@ function MainPage() {
       <Element name="work">
         <Work />
       </Element>
-      <Element name="contact">
+      <Element name="Blog">
+        <Blog />
+      </Element>
+      <Element name="Contact">
         <Contact />
       </Element>
       <Footer />
@@ -74,7 +78,7 @@ function App() {
       <Route path="/home" element={<MainPage />} />
       <Route path="/Portfo" element={<PortfoPage />} />
       <Route path="/PorService" element={<PorServicePage />} />
-      <Route path="*" element={<MainPage />} /> {/* Optional: Redirect any unmatched route to the home page */}
+      <Route path="*" element={<MainPage />} /> {/* Redirect any unmatched route to the home page */}
     </Routes>
   );
 }

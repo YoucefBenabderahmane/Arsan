@@ -18,6 +18,7 @@ const Navbar = ({ isHomeSection }) => {
     { path: '/home#services', name: 'Services' },
     { path: '/home#about', name: 'About' },
     { path: '/home#work', name: 'Work' },
+    { path: '/home#Blog', name: 'Blog' },
     { path: '/home#contact', name: 'Contacts' },
   ];
 

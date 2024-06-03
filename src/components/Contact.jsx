@@ -25,18 +25,11 @@ const Contact = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-20">
 
   <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
-  <GoClock className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]" />
-    <h2 className="text-3xl font-alga text-gray-900 my-2">Open Hours</h2>
-    <p className="text-lg text-gray-600">Mon-Fri: 9 AM - 6 PM</p>
-    <p className="text-lg text-gray-600">Saturday: 9 AM - 4 PM</p>
-    <p className="text-lg text-gray-600">Sunday: Closed</p>
-  </div>
-
-  <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
     <PiMapPinLight  className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]"/>                
     <h2 className="text-3xl font-alga text-gray-900 my-2">Address</h2>
     <p className="text-lg text-gray-600">AHMED BIN ALI ST, BIN OMRAN,<br />DOHA, QATAR</p>
-    <Link onClick={handleClick} to="contact-form" smooth={true} duration={800} delay={100} className="text-blue-500 text-lg mt-2">
+    <Link onClick={handleClick} to="contact-form" smooth={true} duration={800} delay={100} 
+    className="text-blue-500 text-lg mt-2 cursor-pointer">
     <p>Check Location</p>
     </Link>
   </div>
@@ -47,14 +40,21 @@ const Contact = () => {
     <p className="text-lg text-gray-600">Telephone: +(974) 5569 3999</p>
     <p className="text-lg text-gray-600">Email: arsan-qa@outlook.com</p>
     <Link onClick={handleClick} to="contact-form" smooth={true} duration={800} delay={100} className="text-blue-500 text-lg mt-2">
-    <p className="text-blue-500 text-lg mt-2">Contact Form</p>
+    <p className="text-blue-500 text-lg mt-2 cursor-pointer">Contact Form</p>
     </Link>
-  
+  </div>
+
+  <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
+  <GoClock className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]" />
+    <h2 className="text-3xl font-alga text-gray-900 my-2">Open Hours</h2>
+    <p className="text-lg text-gray-600">Mon-Fri: 9 AM - 6 PM</p>
+    <p className="text-lg text-gray-600">Saturday: 9 AM - 4 PM</p>
+    <p className="text-lg text-gray-600">Sunday: Closed</p>
   </div>
 
 </div>
 
-        <div id="contact-form" name='contact-form' className="grid grid-cols-1 sm:grid-cols-2 gap-20">
+        <div id="contact-form" name='contact-form' className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
   <iframe 
     title='Location'
     className="mt-24"

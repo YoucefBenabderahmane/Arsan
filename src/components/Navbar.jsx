@@ -15,10 +15,11 @@ const Navbar = ({ isHomeSection }) => {
   const location = useLocation();
 
   const links = [
-    { id: 'home', name: 'Home' },
+    { id: 'home' },
     { id: 'Services', name: 'Services' },
     { id: 'about', name: 'About' },
     { id: 'Work', name: 'Work' },
+    { id: 'Blog', name: 'Blog' },
     { id: 'Contact', name: 'Contacts' },
   ];
 
@@ -75,8 +76,8 @@ const Navbar = ({ isHomeSection }) => {
   }, []);
 
   return (
-    <div className='absolute w-full h-[80px] flex justify-between items-center px-4 mt-14 my-2 bg-transparent text-white overflow-hidden' ref={navRef}>
-      <div>
+    <div className='absolute w-full h-[80px] flex justify-between items-center -ml-2 px-2 mt-14 my-2 bg-transparent text-white overflow-hidden' ref={navRef}>
+      <div >
         <img
           src={MyLogo}
           alt='Logo'

@@ -7,8 +7,7 @@ import HORSEWALKER from '../assets/HORSE WALKER.png';
 import PADDOCK from '../assets/PADDOCK.png';
 import { LuChevronDown } from 'react-icons/lu';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
-
-
+import Count from './Count';
 
 const Work = () => {
   const scrollContainerRef = useRef(null);
@@ -43,6 +42,8 @@ const Work = () => {
   return (
     <div name='Work' className='w-full font-alga md:h-auto text-gray-900'>
       <div className='max-w-[1300px] mx-auto flex-col justify-center p-8'>
+        
+        
 
         <div className='sm:text-center pb-8 mt-6 my-10'>
           <p className="text-6xl font-alga inline-block relative group">
@@ -53,6 +54,9 @@ const Work = () => {
             <LuChevronDown size={20} />
           </div>
         </div>
+
+        
+        <Count />
 
         <div className="relative">
           <button
