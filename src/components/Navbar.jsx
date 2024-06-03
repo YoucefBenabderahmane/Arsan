@@ -133,7 +133,7 @@ const Navbar = ({ isHomeSection }) => {
 
 
       {/* Side Navigation */}
-      <div className={`fixed top-0 right-0 h-full w-full max-w-[340px] xs:max-w-[250px] xs:right-0 bg-white text-gray-800 transition-transform transform ${navOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ transitionDuration: '1s' }}>
+      <div className={`fixed top-0 right-0 h-full w-full max-w-[280px] sm:max-w-[360px] sm:right-0 bg-white text-gray-800 transition-transform transform ${navOpen ? 'translate-x-0' : 'translate-x-full'}`} style={{ transitionDuration: '1s' }}>
         <button
           onClick={handleNavToggle}
           className="absolute top-6 right-6 bg-gray-200 text-black p-3 rounded-full hover:bg-gray-300 transition-transform transform hover:rotate-180"
@@ -155,7 +155,7 @@ const Navbar = ({ isHomeSection }) => {
         </button>
 
         <div className="flex flex-col items-center mt-12 space-y-6">
-          <img src={MyLogo2} alt="HappyRider Logo" className="w-20 h-20 sm:w-30 sm:h-24" />
+          <img src={MyLogo2} alt="HappyRider Logo" className="w-20 h-20 sm:w-40 sm:h-24" />
         </div>
         <div>
           <ul className="ml-6 my-16 space-y-6 sm:space-y-12">
