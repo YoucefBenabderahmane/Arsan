@@ -8,17 +8,19 @@ import PADDOCK from '../assets/PADDOCK.png';
 import { LuChevronDown } from 'react-icons/lu';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import Count from './Count';
+import { useTranslation } from 'react-i18next';
 
 const Work = () => {
   const scrollContainerRef = useRef(null);
+  const [t]=useTranslation("global");
 
   const projects = [
-    { image: Arena, title: 'ARENA', link: '/portfo' },
-    { image: HorseStud, title: 'Horse Stud', link: '/portfo' },
-    { image: OUTMAJLIS, title: 'OUT MAJLIS', link: '/portfo' },
-    { image: HORSEWALKER, title: 'HORSE WALKER', link: '/portfo' },
-    { image: RacingTrack, title: 'Horse Racing Track', link: '/portfo' },
-    { image: PADDOCK, title: 'PADDOCK', link: '/portfo' },
+    { image: Arena, title: 'ARENA', key:"title1", link: '/portfo' },
+    { image: HorseStud, title: 'Horse Stud', key:"title2", link: '/portfo' },
+    { image: OUTMAJLIS, title: 'OUT MAJLIS', key:"title3", link: '/portfo' },
+    { image: HORSEWALKER, title: 'HORSE WALKER', key:"title4", link: '/portfo' },
+    { image: RacingTrack, title: 'Horse Racing Track', key:"title5", link: '/portfo' },
+    { image: PADDOCK, title: 'PADDOCK', key:"title6", link: '/portfo' },
   ];
 
   const scrollLeftButton = () => {
@@ -47,7 +49,7 @@ const Work = () => {
 
         <div className='sm:text-center pb-8 mt-6 my-10'>
           <p className="text-6xl font-alga inline-block relative group">
-            Our Work
+          {t("work.wor")}
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-700 group-hover:w-full"></span>
           </p>
           <div className='flex justify-center my-6'>
@@ -78,9 +80,9 @@ const Work = () => {
                 className="project-card snap-start w-96 flex-shrink-0 m-2 transition-transform duration-300 hover:scale-105 cursor-pointer" // Adjust width of project cards
               >
                 <img src={project.image} 
-                alt={project.title}
+                alt={t(`work.${project.key}`)}
                 className="project-image object-cover mb-4 w-full h-90" /> 
-                <h3 className="text-xl font-alga mb-4">{project.title}</h3>
+                <h3 className="text-xl font-alga mb-4">{t(`work.${project.key}`)}</h3>
                 
               </div>
                </a>

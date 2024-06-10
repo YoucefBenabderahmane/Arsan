@@ -1,0 +1,123 @@
+{
+    "nav": {
+        "Home": "Home",
+        "services": "Services",
+        "about": "About",
+        "work": "Work",
+        "blog": "Blog",
+        "contact": "Contacts"
+    },
+    "home": {
+        "society": "HORSE SOCIETY",
+        "ARSANQCENTER": "ARSAN Q CENTER",
+        "undert": "The home for high-quality horse stalls and stable equipment"
+    },
+    "services": {
+        "check": "Check out Our Services",
+        "rid": "start riding",
+        "title1": "Full Services",
+        "title2": "Arsan International",
+        "title3": "Company",
+        "text": "Discover Arsan International, Qatar's premier horse stud design company. Our expert team creates bespoke equestrian facilities tailored to your needs. From state-of-the-art training halls to luxurious swimming pools, every detail is meticulously crafted. Experience the pinnacle of equestrian luxury with Arsan International.",
+        "fen": "Fences"
+    },
+    "ser": {
+        "Fans": "Fans",
+        "Solorium": "Horse Solorium",
+        "Rubber": "Rubber Floor Bricks",
+        "Pvc": "PVC FENCE"
+    },
+    "About": {
+        "About": "About Us",
+        "txtb": "Welcome to Arsan International CompanyArsan International Company, based in Qatar, is a pioneering leader in the design and implementation of horse studs. As a trailblazer in the region, our company was founded with the vision of achieving unparalleled architectural creativity within the equestrian world. At Arsan International, we pride ourselves on our meticulous attention to detail, crafting bespoke equestrian facilities that cater to the highest standards of functionality and aesthetics. Our comprehensive services cover every aspect of horse stud design and construction, ensuring that each project is executed with precision and excellence from inception to completion. We ower a diverse range of specialized equestrian facilities, tailored to meet the unique needs of our clients. Our expertise includes the design and construction of: Horse Rooms: Custom-designed spaces that provide optimal comfort and safety for your horses. Horse Swimming Pools: State-of-the-art pools for horse rehabilitation and training. Training Halls: Comprehensive training facilities equipped with the latest technology. Runways for Display: Elegant and functional runways for showcasing horses. Closed Halls: Versatile indoor spaces for various equestrian activities. Small Clinics: Specialized medical facilities for equine care. Integrated Clinics: Fully equipped clinics overing a wide range of veterinary services. Small Villas: Comfortable and stylish living spaces for start or guests. Workers' Housing: Practical and well-designed accommodation for start. Outdoor Majlis: Traditional outdoor gathering spaces for relaxation and socializing. Private Gates: Secure and aesthetically pleasing entrances. Landscape Design: Beautifully designed outdoor spaces that enhance the overall environment. Swimming Pools: Luxurious pools that complement the elegance of your equestrian facility. At Arsan International Company, we are committed to delivering excellence in every project. Our team of experts works closely with clients to ensure that every detail is addressed, providing tailored solutions that exceed expectations. From the initial design phase to the final handover, we manage every step with the utmost professionalism and dedication. Join us in our quest for architectural creativity in the equestrian world. Discover how Arsan International Company can transform your vision into reality, creating exceptional equestrian facilities that stand the test of time."
+    },
+    "work": {
+        "wor": "Our Work",
+        "com": "Competitions Held",
+        "descom": "Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+        "awar": "Awards Earned",
+        "desawar": "Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+        "title1": "ARENA",
+        "title2": "Horse Stud",
+        "title3": "OUT MAJLIS",
+        "title4": "HORSE WALKER",
+        "title5": "Horse Racing Track",
+        "title6": "PADDOCK"
+    },
+    "blo": {
+        "title": "Contacts",
+        "txt1": "Great experience with ARSAN Club! Learned a lot and met amazing people.",
+        "txt2": "Great experience with ARSAN Club! Learned a lot and met amazing people.",
+        "txt3": "ARSAN Club transformed my riding skills and gave me lifelong friends."
+    },
+    "contact": {
+        "title": "Contacts",
+        "txt2": "Open Hours",
+        "txt2-1": "Mon-Fri: 9 AM - 6 PM",
+        "txt2-2": "Saturday: 9 AM - 4 PM",
+        "txt2-3": "Sunday: Closed",
+        "txt1": "Get In Touch",
+        "txt1-2": "Telephone: +(974) 5569 3999",
+        "txt1-3": "Email: arsan-qa@outlook.com",
+        "txt3": "Adress",
+        "txt3-1": "AHMED BIN ALI ST, BIN OMRAN,",
+        "txt3-2": "DOHA, QATAR",
+        "form": "Contact Form",
+        "form1": "Contact Us",
+        "form2": "Have Questions?",
+        "form3": "Get in touch",
+        "name": "First Name",
+        "surname": "Last Name",
+        "mail": "Email",
+        "phone": "Phone",
+        "msg": "Message",
+        "GET IN TOUCH": "GET IN TOUCH",
+        "loc": "Check Location"
+    },
+    "footer": {
+        "hors": "Horse",
+        "club": "clubs",
+        "farm": "Farms",
+        "stud": "Studs"
+    },
+    "port": {
+        "hors": "HORSE STUD",
+        "hight": "High Quality Necessary Fittings",
+        "Hightxt": "CE inspected control box Adjustable direction and duration Step-less speed control Emergency stop 0.75KW Quiet Motor with Industrial Belts Power Supply: 220V ,110V,240V Stainless steel planetary gear box (not aluminium",
+        "txt1": "ARSAN International specialize in designing and constructing world-class horse stables that prioritize the comfort, safety, and well-being of your equine companions. Our stables are meticulously crafted to meet the highest standards of functionality and aesthetics, providing a luxurious and functional space for your horses.",
+        "Arena": "ARENA",
+        "txt2": "ARSAN International is a leading provider of high-quality horse arenas, specializing in designing and constructing arenas that meet the needs of riders, trainers, and horses. Our arenas are built to the highest standards of safety, performance, and durability, providing a premier riding experience for equestrian enthusiasts of all levels.",
+        "out": "OUT MAJLIS",
+        "txt3": "  ARSAN International provider of outdoor majlis construction services, designing and building luxurious majlis spaces that complement horse stables. Our outdoor majlis are perfect for equestrian enthusiasts and horse owners looking to enhance their stable facilities with a touch of elegance and style.",
+        "race": "HORSE RACING TRACK",
+        "txt4": "ARSAN International is a leading provider of top-tier horse racing track construction services, specializing in designing and building state-of-the-art tracks that meet the highest standards of safety, performance, and aesthetics, With a commitment to excellence and a passion for equestrian sports."
+    },
+    "pro": {
+        "Fans": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed  magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl aliquip ex ea commodo consequat. Duis autem vel eum iriure  consequat, velillum dolore eu  nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed",
+        "SOLARIUM": " A horse solarium oers several benets for equine health and well-being: Relaxation and Recovery, Faster Drying, Muscle Elasticity, Physical and Psychological Health, Disease Prevention, Coat Care. Typical usage times range from 15 to 30 minutes, but these should always be monitored and adjusted based on individual horse needs. ARSAN International provide comfort and relaxation for horses by oering horse solariums to enhance the well-being of your equine companions, oering a range of therapeutic benets to support their health and performance.",
+        "RUBBER": " Thickness: 15 mm to 45 m Size: 2.1m,2.2m,2.5m ... ( Size can be customized ) Advantage 1. Enhances your property valu 2.Reduces unhealthy dust levels  3.Non-slip surface allows your horse to walk securely and comfortably 4.Waterproof and water permeable for quick drainage",
+        "FENCES": "ARSAN International is a leading provider of top-tier horse racing track construction services, specializing in designing and building state-of-the-art tracks that meet the highest standards of safety, performance, and aesthetics, With a commitment to excellence and a passion for equestrian sports.",
+        "PARTITIONS": " Size Height: 2.2m(2. 7ft) Length: 3m/3.5m/4m , 10ft/12ft/14ft...(or custom made to order) Surface Treatment Powder Coating on pre-galvanized steel pipes (Any color can be customized .) Hot dip galvanizing",
+        "title1": "Fans",
+        "title2": "HORS SOLARIUM",
+        "title3": "RUBBER FLOOR BRICKS",
+        "title4": "FENCES",
+        "title5": "PARTITIONS",
+
+        "title6":"SLIDING FRONT DOOR",
+        "txt6-1":"Size: Height: 2.2m(2. 7ft), Length: 3m/3.5m/4m, 10ft/12ft/14ft...",
+        "txt6-2":"Infill",
+        "txt6-3":"Bamboo: thickness 38/32/28/20mm :( Ventilation opening on bamboo can be custom-made ) Pine: thickness 40/30/25mm Plastic Wood/plywood/others Bars and Wire Mesh on lower half parts",
+        "txt6-4":"Surface Treatment",
+        "txt6-5":"Powder Coating on pre-galvanized steel pipes (Any color can be customized .) Hot dip galvanizing Fitting options wivel feeder/Hay rack/Automatic Drinker",
+         
+         
+        "title7":"STALL DOORS",
+        "txt7-1":"Classic Luxury Style",
+        "txt7-2":"Size: 1. Height: 2.2m(2. 7ft), 2. Length: 3m/3.5m/3.6m/4m , 10ft/12ft/14ft...",
+        "txt7-3":"Infill: Bamboo: thickness 38/32/28/20mm : ( Ventilation opening on bamboo can be custom-made ) Pine: thickness 40/30/25mm Plastic Wood/plywood/others Bars and Wire Mesh on lower half parts",
+        "txt7-4":"Surface Treatment",
+        "txt7-5":"Powder Coating on pre-galvanized steel pipes (Any color can be customized .) Hot dip galvanizing",
+        "txt7-6":"SIMPLE CURVE EURO STYLE"
+    }
+}

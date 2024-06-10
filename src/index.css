@@ -44,18 +44,49 @@ html, body {
   ) !important;
 }
 
-/* Custom font-face */
 @font-face {
-  font-family: 'alga'; /* Specify font family name */
-  src: url('./assets/fonts/alga.ttf') format('truetype'); /* Provide path to your font file */
-  /* You can include other font formats like woff, woff2 for better compatibility */
+  font-family: 'alga';
+  src: url('./assets/fonts/alga.ttf') format('truetype');
 }
 
-/* Custom styles for small screens */
 @media (max-width: 767px) {
   .home {
     background-image: url('./assets/wallpaper.jpg') !important;
-    background-position: 68% center !important; /* Adjust as needed */
+    background-position: 68% center !important;
     font-family: 'alga';
   }
+}
+
+body.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+body.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.ltr .text-left {
+  text-align: left;
+}
+
+.rtl .text-right {
+  text-align: right;
+}
+
+.ltr .ml-auto {
+  margin-left: auto;
+}
+
+.rtl .mr-auto {
+  margin-right: auto;
+}
+
+.ltr .pl-4 {
+  padding-left: 1rem;
+}
+
+.rtl .pr-4 {
+  padding-right: 1rem;
 }

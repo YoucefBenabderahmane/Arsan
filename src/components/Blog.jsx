@@ -1,5 +1,5 @@
 // src/components/TestimonialSlider.jsx
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
@@ -7,23 +7,27 @@ import Christine from '../assets/Christine.jpeg'
 import John from '../assets/John.jpg'
 import Jana from '../assets/Jana.jpg'
 import { ImQuotesLeft } from 'react-icons/im';
+import { useTranslation } from 'react-i18next';
 
 
 const testimonials = [
   {
     text: "I rode with these guys for a few years and learned so much! I've already recommended Happy Rider Club to all my friends. Now riding is not just a hobby, but a great part of my life.",
+    key:"txt1",
     name: "Christine Manson",
     location: "Pasadena",
     image:Christine
   },
   {
     text: "Great experience with Happy Rider Club! Learned a lot and met amazing people.",
+    key:"txt2",
     name: "John Doe",
     location: "Los Angeles",
     image: John
   },
   {
     text: "Happy Rider Club transformed my riding skills and gave me lifelong friends.",
+    key:"txt3",
     name: "Jana Smith",
     location: "San Francisco",
     image: Jana
@@ -31,6 +35,21 @@ const testimonials = [
 ];
 
 const Blog = () => {
+
+  const [t]=useTranslation("global");
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const currentLanguage = i18n.language;
+    if (currentLanguage === 'ar') {
+      document.body.classList.add('rtl');
+      document.body.classList.remove('ltr');
+    } else {
+      document.body.classList.add('ltr');
+      document.body.classList.remove('rtl');
+    }
+  }, [i18n.language]);
+
   const [selectedTestimonial, setSelectedTestimonial] = useState(0);
   const sliderRef = useRef(null);
 
@@ -56,7 +75,7 @@ const Blog = () => {
         {testimonials.map((testimonial, index) => (
           <div key={index} className="text-center w-full max-w-4xl mx-auto py-8 px-4 p-4">
             <ImQuotesLeft className="mx-auto mb-4" style={{width: '30px', height: '30px', color:'#763721'}}/>
-            <p className="text-2xl sm:text-3xl md:text-3xl italic mb-4 break-words">"{testimonial.text}"</p>
+            <p className="text-2xl sm:text-3xl md:text-3xl italic mb-4 break-words">"{t(`blo.${testimonial.key}`)}"</p>
             <h3 className="text-xl font-alga">{testimonial.name}</h3>
             <p className="text-gray-600 font-alga">{testimonial.location}</p>
           </div>

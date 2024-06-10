@@ -1,29 +1,25 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
-  content: [ "./src/**/*.{js,jsx,ts,tsx}",],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    
     extend: {
-        fontFamily: {
-          alga: ["alga"]
-        },
+      fontFamily: {
+        alga: ["alga"],
+      },
     },
-    
   },
   plugins: [
-    function({ addUtilities }) {
+    require('tailwindcss-rtl'),
+    function ({ addUtilities }) {
       addUtilities({
         '.scrollbar-hide': {
-          /* Hide scrollbar for Webkit browsers */
           '&::-webkit-scrollbar': {
-            display: 'none'
+            display: 'none',
           },
-          /* Hide scrollbar for IE, Edge, and Firefox */
-          '-ms-overflow-style': 'none',  /* IE and Edge */
-          'scrollbar-width': 'none'  /* Firefox */
-        }
-      })
-    }
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+        },
+      });
+    },
   ],
-}
-
+};

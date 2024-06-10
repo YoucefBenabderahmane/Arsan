@@ -2,14 +2,18 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import logo from '../assets/MyLogo.png'; // Replace with your logo path
 import { FaFacebookF, FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+
+  const [t]= useTranslation("global");
+
   const links = [
-    { id: 'home', name: 'Home'},
-    { id: 'Work', name: 'Services'},
-    { id: 'about', name: 'About'},
-    { id: 'Skills', name: 'Skills'},
-    { id: 'Contact', name: 'Contact'}
+    { id: 'home',key:'Home', name: 'Home '}, 
+    { id: 'Work',key: 'work',  name: 'Work'},
+    { id: 'about',key: 'about', name: 'About'},
+    { id: 'services',key: 'services', name: 'Services'},
+    { id: 'Contact', key: 'contact', name: 'Contact'}
   ];
 
   
@@ -18,13 +22,15 @@ const Footer = () => {
       <div className="max-w-[1500px] h-auto mx-auto px-8">
         <div className="flex flex-col md:flex-row justify-between items-center my-6">
           <div className="flex items-center mb-10 md:mb-0">
-            <img src={logo} alt="HappyRider" className="w-44 h-24 mx-6" />
+            <a href='/home#home'>
+            <img src={logo} alt="Home" className="w-44 h-24 mx-6" />
+            </a>
             <div className="border-t border-gray-700 my-8"></div>
           </div>
-          <nav className="flex space-x-6 text-lg mx-6">
+          <nav className="flex space-x-6 text-lg mx-4">
             {links.map(link => (
               <Link key={link.id} to={link.id} smooth={true} duration={700} delay={200} className="hover:underline cursor-pointer">
-                {link.name}
+                {t(`nav.${link.key}`)}
               </Link>
             ))}
           </nav>
@@ -32,13 +38,13 @@ const Footer = () => {
         <div className="border-t border-gray-700 my-8"></div>
         <div className="flex flex-col md:flex-row justify-between items-center text-center font-alga md:text-left text-gray-300 mb-8 mx-6">
           <div className="mb-8 md:mb-0 first-letter:">
-            <p><br />AHMED BIN ALI ST, BIN OMRAN,<br />DOHA, QATAR</p>
+            <p><br />{t("contact.txt3-1")}<br />{t("contact.txt3-2")}</p>
           </div>
           <div className=" my-24 md:mb-0">
-            <p>+974 5569 3999 <br /><a href="ARSAN-QA@OUTLOOK.COM" className="underline">ARSAN-QA@OUTLOOK.COM</a></p>
+            <p>{t("contact.txt1-2")}<br /><a href="ARSAN-QA@OUTLOOK.COM" className="underline">{t("contact.txt1-3")}</a></p>
           </div>
           <div className=" my-24 md:mb-0">
-            <p>HORSE<br />CLUBS, FARMS, STUDS</p>
+            <p>{t("footer.hors")},<br />{t("footer.club")}, {t("footer.farm")}, {t("footer.stud")}</p>
           </div>
           <div className="flex space-x-4 ">
             <a href="https://www.facebook.com/ArsanInternational" aria-label="Facebook" className="text-white hover:text-gray-400">

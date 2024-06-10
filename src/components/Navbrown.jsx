@@ -3,6 +3,7 @@ import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebookF, FaShoppingBag, FaSear
 import MyLogo2 from '../assets/MyLogo2.png';
 
 import { NavLink} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 const Navbar = ({ isHomeSection }) => {
@@ -12,19 +13,34 @@ const Navbar = ({ isHomeSection }) => {
   const [navOpen, setNavOpen] = useState(false);
   const navRef = useRef(null);
 
+  const { i18n } = useTranslation();
+  const [t]= useTranslation("global");
+
+  useEffect(() => {
+    const currentLanguage = i18n.language;
+    if (currentLanguage === 'ar') {
+      document.body.classList.add('rtl');
+      document.body.classList.remove('ltr');
+    } else {
+      document.body.classList.add('ltr');
+      document.body.classList.remove('rtl');
+    }
+  }, [i18n.language]);
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+  
 
   const links = [
-    { path: '/home#home', name: 'Home' },
-    { path: '/home#services', name: 'Services' },
-    { path: '/home#about', name: 'About' },
-    { path: '/home#work', name: 'Work' },
-    { path: '/home#Blog', name: 'Blog' },
-    { path: '/home#contact', name: 'Contacts' },
+    { path: '/home#home', key:'Home', name: 'Home' },
+    { path: '/home#services', key: 'services', name: 'Services' },
+    { path: '/home#about', key: 'about', name: 'About' },
+    { path: '/home#work', key: 'work', name: 'Work' },
+    { path: '/home#Blog', key: 'blog', name: 'Blog' },
+    { path: '/home#contact', key: 'contact', name: 'Contacts' },
   ];
 
-
-
-  
   const handleScroll = () => {
     setShowScrollButton(window.scrollY > 0);
   };
@@ -77,7 +93,7 @@ const Navbar = ({ isHomeSection }) => {
   }, []);
 
   return (
-    <div className='absolute w-full h-[140px] flex justify-between items-center px-4 mt-10 my-2 bg-transparent text-[#763721] overflow-hidden' ref={navRef}>
+    <div className='absolute w-full h-[180px] flex justify-between items-center px-4 mt-10 my-2 bg-transparent text-[#763721] overflow-hidden' ref={navRef}>
      <div className="w-full flex flex-col sm:flex-row items-center justify-between">
       {/* Logo for wide screens */}
       <img
@@ -94,20 +110,27 @@ const Navbar = ({ isHomeSection }) => {
           className="w-32 h-auto mx-auto"
         />
       </div>
+
+      <div className={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
+        <div className='space-x-2 mt-2 text-[#763721]'>
+<button className='' onClick={() => changeLanguage ('en')}>English /</button>
+      <button className='' onClick={() => changeLanguage ('ar')}>العربية</button>
+        </div>
+      </div>
       
       <div className="flex flex-1 justify-center sm:justify-center mt-2 sm:mt-0">
 
         <ul className='flex flex-wrap sm:flex-nowrap justify-center text-lg md:text-xl font-alga space-x-4'>
         {links.map((link) => (
-          <li key={link.name} className="relative">
+          <li key={link.key} className="relative">
            
-              <NavLink to={link.path} className="hover:underline">
-                {link.name}
+              <NavLink  to={link.path} className="hover:underline">
+                {t(`nav.${link.key}`)}
               </NavLink>
           </li>
         ))}
         </ul>
-        
+       
       </div>
     </div>
 
@@ -115,7 +138,7 @@ const Navbar = ({ isHomeSection }) => {
       <div className='flex items-start sm:space-x-6 mx-4 ml-2 sm:mx-32'>
       {isSmallScreen ? null : (
           <>
-            <FaShoppingBag className="text-[#763721] text-lg sm:text-xl cursor-pointer" size={20} />
+            <FaShoppingBag className="text-[#763721] text-lg ml-4 sm:text-xl cursor-pointer" size={20} />
             <FaSearch className="text-[#763721] text-lg sm:text-xl cursor-pointer" size={20} />
           </>
         )}

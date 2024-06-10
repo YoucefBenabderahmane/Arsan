@@ -3,10 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 
 import wallpaper from '../assets/wallpaper.jpg';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
 
+  const [t]=useTranslation("global");
+  
 
+  
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -40,24 +44,26 @@ const Home = () => {
       <div className="max-w-full mx-auto px-4 sm:px-8 font-alga flex flex-col justify-center text-center">
         <animated.h1
           style={props}
-          className="text-white font-alga text-2xl sm:text-4xl py-2 sm:py-4"
+          className="text-white font-alga text-xl sm:text-4xl py-2 sm:py-4"
         >
-          HORSE SOCIETY
+            {t("home.society")}
         </animated.h1>
 
         <animated.h2
           style={props}
-          className="text-4xl sm:text-6xl lg:text-9xl font-alga py-2 sm:py-4 text-[#ccd6f6]"
+          className="text-5xl sm:text-6xl lg:text-9xl font-alga py-2 sm:py-4 text-[#ccd6f6]"
         >
-          ARSAN Q CENTER
+          {t("home.ARSANQCENTER")}
         </animated.h2>
 
         <animated.h2
           style={props}
-          className="text-2xl sm:text-4xl lg:text-7xl font-alga text-[#8892b0]"
+          className="text-xl sm:text-xl lg:text-3xl font-alga text-white"
         >
+          {t("home.undert")}
         </animated.h2>
       </div>
+      
     </div>
   );
 };

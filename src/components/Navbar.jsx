@@ -2,12 +2,30 @@ import React, { useState, useRef, useEffect } from 'react';
 import MyLogo from '../assets/MyLogo.png';
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebookF, FaShoppingBag, FaSearch, FaArrowUp } from 'react-icons/fa';
 import MyLogo2 from '../assets/MyLogo2.png';
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 const Navbar = ({ isHomeSection }) => {
 
+  const { i18n } = useTranslation();
+  const [t]= useTranslation("global");
+  
+  useEffect(() => {
+    const currentLanguage = i18n.language;
+    if (currentLanguage === 'ar') {
+      document.body.classList.add('rtl');
+      document.body.classList.remove('ltr');
+    } else {
+      document.body.classList.add('ltr');
+      document.body.classList.remove('rtl');
+    }
+  }, [i18n.language]);
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
@@ -15,12 +33,11 @@ const Navbar = ({ isHomeSection }) => {
   const location = useLocation();
 
   const links = [
-    { id: 'home' },
-    { id: 'Services', name: 'Services' },
-    { id: 'about', name: 'About' },
-    { id: 'Work', name: 'Work' },
-    { id: 'Blog', name: 'Blog' },
-    { id: 'Contact', name: 'Contacts' },
+    { id: 'Services', key: 'services', name: 'Services' },
+    { id: 'about', key: 'about', name: 'About' },
+    { id: 'work', key: 'work', name: 'Work' },
+    { id: 'Blog', key: 'blog', name: 'blog' },
+    { id: 'Contact', key: 'contact', name: 'Contact' },
   ];
 
   const isPortfoPage = location.pathname === '/portfo';
@@ -76,38 +93,60 @@ const Navbar = ({ isHomeSection }) => {
   }, []);
 
   return (
-    <div className='absolute w-full h-[80px] flex justify-between items-center -ml-2 px-2 mt-14 my-2 bg-transparent text-white overflow-hidden' ref={navRef}>
-      <div >
+    <div className='absolute w-full h-[170px] flex justify-between items-center px-4 mt-10 my-2 bg-transparent text-white overflow-hidden' ref={navRef}>
+      
+      <div className="w-full flex flex-col sm:flex-row items-center justify-between">
+        {/* Logo for wide screens */}
+        <a href="/home">
         <img
           src={MyLogo}
-          alt='Logo'
-          className="w-32 h-auto mt-2 sm:w-52 mx-4 sm:mx-20 hidden sm:block"
+          alt="Logo"
+          className="hidden sm:block w-32 h-auto mt-2 sm:w-52 mx-4 sm:mx-20"
         />
+        </a>
+        {/* Logo for small screens */}
+        <div className="block sm:hidden mt-2">
+          <img
+            src={MyLogo}
+            alt="Logo"
+            className="w-32 h-auto mx-auto"
+          />
+        </div>
+        <div className={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
+          <div className='space-x-2 mt-2 text-white'>
+            <button className='text-lg font-alga' onClick={() => changeLanguage('en')}>English /</button>
+            <button className='text-lg font-alga' onClick={() => changeLanguage('ar')}>العربية</button>
+          </div>
+        </div>
+        <div className="flex flex-1 justify-center sm:justify-center mt-2 sm:mt-0">
+          <ul className='flex flex-wrap sm:flex-nowrap justify-center text-lg md:text-xl font-alga space-x-4'>
+            {links.map((link) => (
+              <li key={link.key} className="relative">
+                <ScrollLink
+                  to={link.id}
+                  smooth={true}
+                  duration={500}
+                  className="hover:underline cursor-pointer"
+                  activeClass="active"
+                  spy={true}
+                >
+                  {t(`nav.${link.key}`)}
+                </ScrollLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-
-      <ul className='md:flex sm:flex text-lg md:text-xl sm:text-xl font-alga -space-x-4 sm:space-x-4 mx-0 sm:mx-6 flex'>
-        {links.map((link) => (
-          <li key={link.id} className="relative">
-            <Link to={link.id} smooth={true} duration={700} delay={200} className={`hover:underline ${isPortfoPage ? 'text-[#763721]' : 'text-white'}`}>
-              {link.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-
-
-
       {/* Navbar icons */}
-      <div className='flex items-start sm:space-x-6 mx-2 ml-2 sm:mx-24'>
+      <div className='flex items-start sm:space-x-6 mx-4 ml-2 sm:mx-32'>
         {isSmallScreen ? null : (
           <>
-            <FaShoppingBag className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-lg sm:text-xl cursor-pointer`} size={20} />
-            <FaSearch className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-lg sm:text-xl cursor-pointer`} size={20} />
+            <FaShoppingBag className="text-white ml-4 text-lg sm:text-xl cursor-pointer" size={20} />
+            <FaSearch className="text-white text-lg sm:text-xl cursor-pointer" size={20} />
           </>
         )}
         <button
-          className={`${isPortfoPage ? 'text-[#763721]' : 'text-white'} text-lg sm:text-xl cursor-pointer`}
+          className='text-white text-lg sm:text-xl cursor-pointer'
           size={24}
           onClick={handleNavToggle}
         >
@@ -155,10 +194,10 @@ const Navbar = ({ isHomeSection }) => {
         </button>
 
         <div className="flex flex-col items-center mt-12 space-y-6">
-          <img src={MyLogo2} alt="HappyRider Logo" className="w-20 h-20 sm:w-40 sm:h-24" />
+          <img src={MyLogo2} alt="HappyRider Logo" className="w-28 h-20 sm:w-40 sm:h-24" />
         </div>
         <div>
-          <ul className="ml-6 my-16 space-y-6 sm:space-y-12">
+          <ul className=" ml-6 my-16 space-y-6 sm:space-y-12">
             <li>
               <a
                 href="https://www.facebook.com/ArsanInternational"

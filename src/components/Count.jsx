@@ -1,9 +1,13 @@
 // src/components/Count.jsx
 import React from "react";
 import CountUp from "react-countup";
+import { useTranslation } from "react-i18next";
 import { useInView } from "react-intersection-observer";
 
 const Count = () => {
+
+  const [t]= useTranslation("global");
+
   const { ref, inView } = useInView({
     triggerOnce: true, // Ensures the animation happens only once when the component comes into view
     threshold: 0.5, // Adjust the threshold as needed
@@ -13,12 +17,17 @@ const Count = () => {
     {
       count: 100,
       label: "Competitions Held",
-      description: "Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+      key:"com",
+      description: "Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+      ke:"descom"
+
     },
     {
       count: 2587,
       label: "Awards Earned",
-      description: "Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam."
+      key:"awar",
+      description: "Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
+      ke:"desawar"
     }
   ];
 
@@ -43,8 +52,8 @@ const Count = () => {
                   </>
                 )}
               </p>
-              <h3 className="text-2xl font-alga mb-2">{item.label}</h3>
-              <p className="text-gray-600">{item.description}</p>
+              <h3 className="text-2xl font-alga mb-2">{t(`work.${item.key}`)}</h3>
+              <p className="text-gray-600">{t(`work.${item.ke}`)}</p>
             </div>
           ))}
         </div>
