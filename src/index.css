@@ -90,3 +90,14 @@ body.ltr {
 .rtl .pr-4 {
   padding-right: 1rem;
 }
+.hover:text-black {
+  color: black;
+}
+
+.hover\:bg-white:hover {
+  background-color: white;
+}
+
+.hover\:text-black:hover {
+  color: black;
+}

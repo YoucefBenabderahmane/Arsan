@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
-import Arena from '../assets/ARENA.png';
-import RacingTrack from '../assets/Racing-Track.png';
-import HorseStud from '../assets/Horse-Stud.png';
-import OUTMAJLIS from '../assets/OUT MAJLIS.png';
-import HORSEWALKER from '../assets/HORSE WALKER.png';
-import PADDOCK from '../assets/PADDOCK.png';
+import Sol from '../assets/Sol.png';
+import MAt from '../assets/floor/MAt.png';
+import Stall from '../assets/doors/stall.png';
+import Rubber from '../assets/floor/Rubber.png';
+import Sand from '../assets/Sand/Sand.png';
+import shutter from '../assets/doors/shutter_doors.png';
 import { LuChevronDown } from 'react-icons/lu';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import Count from './Count';
@@ -15,12 +15,13 @@ const Work = () => {
   const [t]=useTranslation("global");
 
   const projects = [
-    { image: Arena, title: 'ARENA', key:"title1", link: '/portfo' },
-    { image: HorseStud, title: 'Horse Stud', key:"title2", link: '/portfo' },
-    { image: OUTMAJLIS, title: 'OUT MAJLIS', key:"title3", link: '/portfo' },
-    { image: HORSEWALKER, title: 'HORSE WALKER', key:"title4", link: '/portfo' },
-    { image: RacingTrack, title: 'Horse Racing Track', key:"title5", link: '/portfo' },
-    { image: PADDOCK, title: 'PADDOCK', key:"title6", link: '/portfo' },
+    { image: shutter, title: 'Shutter Doors', key:"title1", link: '/ProService' },
+    { image: Rubber, title: 'Partitions', key:"title2", link: '/ProService' },
+    { image: MAt, title: 'RUBBER FLOOR MAT', key:"title5", link: '/ProService' },
+    { image: Sand, title: 'PADDOCK', key:"title6", link: '/ProService' },
+    { image: Sol, title: 'HORSE SOLORIUM', key:"title4", link: '/ProService' },
+    { image: Stall, title: 'STALL DOORS', key:"title3", link: '/ProService' }, 
+   
   ];
 
   const scrollLeftButton = () => {

@@ -51,7 +51,7 @@ const Home = () => {
 
         <animated.h2
           style={props}
-          className="text-5xl sm:text-6xl lg:text-9xl font-alga py-2 sm:py-4 text-[#ccd6f6]"
+          className="text-5xl sm:text-6xl lg:text-9xl font-alga py-2 sm:py-4 text-white"
         >
           {t("home.ARSANQCENTER")}
         </animated.h2>

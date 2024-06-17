@@ -3,7 +3,6 @@ import MyLogo from '../assets/MyLogo.png';
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebookF, FaShoppingBag, FaSearch, FaArrowUp } from 'react-icons/fa';
 import MyLogo2 from '../assets/MyLogo2.png';
 import { Link as ScrollLink } from 'react-scroll';
-import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 
@@ -30,17 +29,17 @@ const Navbar = ({ isHomeSection }) => {
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const navRef = useRef(null);
-  const location = useLocation();
+ 
 
   const links = [
     { id: 'Services', key: 'services', name: 'Services' },
     { id: 'about', key: 'about', name: 'About' },
-    { id: 'work', key: 'work', name: 'Work' },
+    { id: 'work', key: 'work', name: 'Products' },
     { id: 'Blog', key: 'blog', name: 'blog' },
     { id: 'Contact', key: 'contact', name: 'Contact' },
   ];
 
-  const isPortfoPage = location.pathname === '/portfo';
+
 
   const handleScroll = () => {
     setShowScrollButton(window.scrollY > 0);

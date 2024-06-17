@@ -40,7 +40,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-20">
 
   <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
-    <PiMapPinLight  className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]"/>                
+    <PiMapPinLight  className="h-16 w-16  my-4 transition duration-500 ease-in-out transform hover:text-[#763721]"/>                
     <h2 className="text-3xl font-alga text-gray-900 my-2">{t("contact.txt3")}</h2>
     <p className="text-lg text-gray-600">{t("contact.txt3-1")}<br />{t("contact.txt3-2")}</p>
     <Link onClick={handleClick} to="contact-form" smooth={true} duration={800} delay={100} 
@@ -50,7 +50,7 @@ const Contact = () => {
   </div>
 
   <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
-  <PiHeadsetLight className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]"/>
+  <PiHeadsetLight className="h-16  w-16  my-4 transition duration-500 ease-in-out transform hover:text-[#763721]"/>
     <h2 className="text-3xl font-alga text-gray-900 my-2">{t("contact.txt1")}</h2>
     <p className="text-lg text-gray-600">{t("contact.txt1-2")}</p>
     <p className="text-lg text-gray-600">{t("contact.txt1-3")}</p>
@@ -60,7 +60,7 @@ const Contact = () => {
   </div>
 
   <div className="flex flex-col items-center text-center p-6 bg-white shadow-lg rounded-lg">
-  <GoClock className="h-24 w-24 my-4 transition duration-500 ease-in-out transform hover:text-[#763721]" />
+  <GoClock className="h-16  w-16  my-4 transition duration-500 ease-in-out transform hover:text-[#763721]" />
     <h2 className="text-3xl font-alga text-gray-900 my-2">{t("contact.txt2")}</h2>
     <p className="text-lg text-gray-600">{t("contact.txt2")}</p>
     <p className="text-lg text-gray-600">{t("contact.txt2-2")}</p>

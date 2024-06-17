@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import service1 from '../assets/logiciel-de-conception.png';
-import service2 from '../assets/construction.png';
-import service3 from '../assets/entretien.png';
-import service4 from '../assets/start.png';
+import service1 from '../assets/services/logiciel-de-conception.png';
+import service2 from '../assets/services/construction.png';
+import service3 from '../assets/services/entretien.png';
+import service4 from '../assets/services/start.png';
 import { useTranslation } from 'react-i18next';
 
 const Services = () => {
@@ -23,10 +23,10 @@ const Services = () => {
   }, [i18n.language]);
 
   const projects = [
-    { icon: service1, key: 'Fans', title: 'Fans', link: '/PorService' },
-    { icon: service2, key: 'Solorium', title: 'Horse Solorium', link: '/PorService' },
-    { icon: service3, key: 'Rubber', title: 'Rubber Floor Bricks', link: '/PorService' },
-    { icon: service4, key: 'Pvc', title: 'Fences', link: '/PorService' }
+    { icon: service1, key: 'Design', title: 'Design', link: '/Design' },
+    { icon: service2, key: 'Build', title: 'Building', link: '/Building' },
+    { icon: service3, key: 'Maintenance', title: 'Maintenance', link: '/Maintenance' },
+    { icon: service4, key: 'Management', title: 'Management', link: '/Management' }
   ];
 
   return (
@@ -60,7 +60,7 @@ const Services = () => {
               <h3 className='text-2xl font-alga mb-4'>{t(`ser.${project.key}`)}</h3>
               <div className='opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-1000'>
                 <a href={project.link} className='flex items-center text-lg text-gray-800 group-hover:text-black'>
-                  <span className='font-alga'>{t('services.readMore')}</span>
+                  <span className='font-alga'>{t('ser.read')}</span>
                   <FaArrowRight className='ml-2' />
                 </a>
               </div>

@@ -8,11 +8,15 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
 import Work from "./components/Work";
-import Portfo from "./components/Portfo";
+import Maintenance from "./components/Maintenance";
 import Navbrown from './components/Navbrown';
-import PorService from './components/PorService';
+import Design from './components/Design';
+import Building from './components/Building';
+import Management from './components/Management';
 import { Element, scroller } from 'react-scroll';
 import Blog from './components/Blog';
+import ProService from './components/PorService';
+
 
 function MainPage() {
   const location = useLocation();
@@ -54,20 +58,44 @@ function MainPage() {
   );
 }
 
-function PorServicePage() {
+function MaintenancePage () {
   return (
     <>
       <Navbrown />
-      <PorService />
+      <Maintenance />
     </>
   );
 }
 
-function PortfoPage() {
+function DesignPage() {
   return (
     <>
       <Navbrown />
-      <Portfo />
+      <Design  />
+    </>
+  );
+}
+function BuildingPage() {
+  return (
+    <>
+      <Navbrown />
+      <Building />
+    </>
+  );
+}
+function ManagementPage() {
+  return (
+    <>
+      <Navbrown />
+      <Management  />
+    </>
+  );
+}
+function ProServicePage() {
+  return (
+    <>
+      <Navbrown />
+      <ProService  />
     </>
   );
 }
@@ -76,8 +104,11 @@ function App() {
   return (
     <Routes>
       <Route path="/home" element={<MainPage />} />
-      <Route path="/Portfo" element={<PortfoPage />} />
-      <Route path="/PorService" element={<PorServicePage />} />
+      <Route path="/Design" element={<DesignPage />} />
+      <Route path="/Maintenance" element={<MaintenancePage />} />
+      <Route path="/Building" element={<BuildingPage />} />
+      <Route path="/Management" element={<ManagementPage />} />
+      <Route path="/ProService" element={<ProServicePage />} />
       <Route path="*" element={<MainPage />} /> {/* Redirect any unmatched route to the home page */}
     </Routes>
   );
