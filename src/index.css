@@ -51,7 +51,7 @@ html, body {
 
 @media (max-width: 767px) {
   .home {
-    background-image: url('./assets/wallpaper.jpg') !important;
+    background-image: url('./assets/baba.mp4') !important;
     background-position: 68% center !important;
     font-family: 'alga';
   }
@@ -90,7 +90,13 @@ body.ltr {
 .rtl .pr-4 {
   padding-right: 1rem;
 }
-.hover:text-black {
+
+.navbar {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: transparent;
+}
+
+.hover\:text-black:hover {
   color: black;
 }
 
@@ -98,6 +104,48 @@ body.ltr {
   background-color: white;
 }
 
-.hover\:text-black:hover {
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.language-dropdown-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.language-dropdown-button::after {
+  content: '▼';
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.language-dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: white;
+  min-width: max-content;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.language-dropdown-content a {
   color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.language-dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.language-dropdown:hover .language-dropdown-content {
+  display: block;
+  opacity: 1;
 }

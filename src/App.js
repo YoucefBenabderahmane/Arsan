@@ -92,10 +92,23 @@ function ManagementPage() {
   );
 }
 function ProServicePage() {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.hash) {
+      const elementId = location.hash.replace('#', '');
+      scroller.scrollTo(elementId, {
+        duration: 800,
+        delay: 0,
+        smooth: 'easeInOutQuart',
+      });
+    }
+  }, [location]);
+
   return (
     <>
       <Navbrown />
-      <ProService  />
+      <ProService />
     </>
   );
 }

@@ -54,7 +54,7 @@ const Services = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className='group container rounded-md flex flex-col justify-between items-center text-center mx-auto p-8 border border-gray-300 transition-transform duration-500 hover:shadow-lg hover:-translate-y-2'
+              className='group container rounded-md flex flex-col justify-between items-center text-center mx-auto p-8  transition-transform duration-500 hover:shadow-sm hover:-translate-y-2'
             >
               <img src={project.icon} alt={project.key} className='w-24 h-24 mb-4' />
               <h3 className='text-2xl font-alga mb-4'>{t(`ser.${project.key}`)}</h3>

@@ -38,6 +38,7 @@ import simcur from '../assets/doors/simcur.png';
 import simcur2 from '../assets/doors/simcur2.png';
 import Footer from './Footer';
 import { useTranslation } from 'react-i18next';
+import { Element } from 'react-scroll';
 
 const PorService = () => {
   const [t] = useTranslation("global");
@@ -64,8 +65,8 @@ const PorService = () => {
             <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-black transition-all duration-700 group-hover:w-full"></span>
           </p>
         </div>
-
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 sm:mt-20 mb-8 mt-20">
+        <Element name="fences">
+        <section id="fences" className="grid sm:grid-cols-2 gap-4 font-alga mx-10 sm:mt-20 mb-8 mt-20">
         <div class="-m-1 flex flex-wrap sm:-m-2 sm:w-full">
               <div class="flex sm:w-2/3 flex-wrap">
                 <div class="w-1/2 p-1 md:p-2">
@@ -119,9 +120,11 @@ const PorService = () => {
           <div name='fances' class="container w-full mx-auto px-5 py-4">
            
           </div>
-        </div>
+        </section>
+        </Element>
 
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
+        <Element name="Rubber">
+        <section id="Rubber" className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
           <div className='grid text-center mx-8 items-center sm:text-centre sm:text-sm'>
             <h1 className='text-4xl my-4'>{t("pro.title3")}</h1>
             <p className='text-xl text-gray-600'>
@@ -173,9 +176,11 @@ const PorService = () => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
+        </Element>
 
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
+        <Element name="Mat">
+        <section id="Mat" className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
         <div class="-m-1 flex flex-wrap sm:-m-2 sm:w-full">
               <div class="flex sm:w-2/3 flex-wrap sm:ml-48">
                 <div class="w-1/2 p-1 md:p-2">
@@ -225,9 +230,11 @@ const PorService = () => {
             </p>
 
           </div>
-        </div>
+        </section>
+        </Element>
 
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
+        <Element name="Partitions">
+        <section id="Partitions" className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
           <div className='grid text-center mx-8 items-center sm:text-centre sm:text-sm'>
             <h1 className='text-4xl my-4'>{t("pro.title5")}</h1>
             <p className='text-xl text-gray-600'>
@@ -259,9 +266,11 @@ const PorService = () => {
 
             </div>
           </div>
-        </div>
+        </section>
+        </Element>
 
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
+        <Element name="Sand">
+        <section id="Sand" className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
         <div class="-m-1 flex flex-wrap sm:-m-2 sm:w-full">
               <div class="flex sm:w-3/2 flex-wrap sm:ml-48">
               <div class="flex w-3/2 p-1 md:p-4">
@@ -289,10 +298,11 @@ const PorService = () => {
             </p>
 
           </div>
-        </div>
+        </section>
+        </Element>
 
-
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
+        <Element name="fans">
+        <section id="fans" className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
           <div className='grid text-center mx-8 items-center sm:text-centre sm:text-sm'>
             <h1 className='text-4xl my-4'>{t("pro.title1")}</h1>
             <p className='text-xl text-gray-600'>
@@ -337,9 +347,11 @@ const PorService = () => {
                 </div>
               </div>
             </div>
-        </div>
+        </section>
+        </Element>
 
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
+        <Element name="feeder">
+        <section id="feeder" className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
         <div class="-m-1 flex flex-wrap sm:-m-2 sm:w-full">
               <div class="flex sm:w-3/2 flex-wrap sm:ml-48">
               <div class="flex w-3/2 p-1 md:p-4">
@@ -373,11 +385,12 @@ const PorService = () => {
             </p>
 
           </div>
-        </div>
+        </section>
+        </Element>
 
 
-
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-1 my-28">
+        <Element name="slide">
+        <section id="slide" className="grid sm:grid-cols-2 gap-4 font-alga mx-1 my-28">
           <div className='relative w-full h-[400px] sm:mx-8 my-20'>
             <img
               src={slide}
@@ -394,9 +407,11 @@ const PorService = () => {
             <p className='text-xl text-gray-600'> {t("pro.txt6-5")}</p>
 
           </div>
-        </div>
+        </section>
+        </Element>
 
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
+        <Element name="stall">
+        <section id="stall"className="grid sm:grid-cols-2 gap-4 font-alga mx-10 my-24">
           <div className='grid text-center mx-8 items-center sm:text-centre sm:text-sm'>
             <h1 className='text-4xl my-4'>{t("pro.title7")}</h1>
             <p className='text-2xl text-gray-800'> {t("pro.txt7-1")}</p>
@@ -417,9 +432,11 @@ const PorService = () => {
               className='absolute top-48 left-0 w-[75%] h-[90%] object-cover hover:scale-110 transition-transform duration-300'
             />
           </div>
-        </div>
+        </section>
+        </Element>
 
-        <div className="grid sm:grid-cols-2 gap-4 font-alga mx-1 my-28">
+        <Element name="simcur">
+        <section id="simcur" className="grid sm:grid-cols-2 gap-4 font-alga mx-1 my-28">
           <div className='relative w-full h-[400px] sm:mx-8 my-20'>
             <img
               src={simcur}
@@ -441,7 +458,9 @@ const PorService = () => {
             <p className='text-xl text-gray-600'> {t("pro.txt6-5")}</p>
 
           </div>
-        </div>
+        </section>
+        </Element>
+        
       </div>
       <div>
         <Footer />

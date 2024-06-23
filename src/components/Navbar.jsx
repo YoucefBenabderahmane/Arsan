@@ -1,49 +1,61 @@
+// Navbar.jsx
 import React, { useState, useRef, useEffect } from 'react';
-import MyLogo from '../assets/MyLogo.png';
 import { FaLinkedin, FaInstagram, FaWhatsapp, FaFacebookF, FaShoppingBag, FaSearch, FaArrowUp } from 'react-icons/fa';
-import MyLogo2 from '../assets/MyLogo2.png';
 import { Link as ScrollLink } from 'react-scroll';
 import { useTranslation } from 'react-i18next';
-
+import MyLogo from '../assets/MyLogo.png';
+import MyLogo2 from '../assets/MyLogo2.png';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = ({ isHomeSection }) => {
 
   const { i18n } = useTranslation();
-  const [t]= useTranslation("global");
-  
-  useEffect(() => {
-    const currentLanguage = i18n.language;
-    if (currentLanguage === 'ar') {
-      document.body.classList.add('rtl');
-      document.body.classList.remove('ltr');
-    } else {
-      document.body.classList.add('ltr');
-      document.body.classList.remove('rtl');
-    }
-  }, [i18n.language]);
-
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-
+  const [t] = useTranslation('global');
   const [showScrollButton, setShowScrollButton] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const navRef = useRef(null);
- 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [hoveredSubmenu, setHoveredSubmenu] = useState(null);
 
   const links = [
-    { id: 'Services', key: 'services', name: 'Services' },
-    { id: 'about', key: 'about', name: 'About' },
-    { id: 'work', key: 'work', name: 'Products' },
-    { id: 'Blog', key: 'blog', name: 'blog' },
-    { id: 'Contact', key: 'contact', name: 'Contact' },
-  ];
+    {
+        id: 'services',
+        key: 'services',
+        name: 'Services',
+        submenu: [
+            { key: 'Design', title: 'Design', link: '/Design' },
+            { key: 'Build', title: 'Building', link: '/Building' },
+            { key: 'Maintenance', title: 'Maintenance', link: '/Maintenance' },
+            { key: 'Management', title: 'Management', link: '/Management' },
+        ],
+    },
+    { id: 'about', key: 'about', name: 'About', submenu: [] },
+    {
+        id: 'work',
+        key: 'work',
+        name: 'Products',
+        submenu: [
+            { id: 'fences', key: 'title4', name: 'Horse Stalls', link: '/ProService#Mat'  },
+            { id: 'Rubber', key: 'title3', name: 'Module System', link: '/ProService'  },
+            { id: 'Mat', key: 'title8', name: 'Gates, Doors, Windows', link: '/ProService'  },
+            { id: 'Partitions', key: 'title5', name: 'Accessories',link: '/ProService'  },
+            { id: 'Sand', key: 'silica', name: 'Horse Walkers and Lunging Arenas', link: '/ProService'  },
+            { id: 'fans', key: 'title1', name: 'Horse Health', link: '/ProService'  },
+            { id: 'feeder', key: 'FEEDER', name: 'Fences', link: '/ProService'  }, // New link for Fences
+            { id: 'slide', key: 'title6', name: 'Rubber', link: '/ProService'  }, // New link for Rubber
+        ],
+    },
+    { id: 'blog', key: 'blog', name: 'Blog', submenu: [] },
+    { id: 'contact', key: 'contact', name: 'Contact', submenu: [] },
+];
 
 
 
   const handleScroll = () => {
     setShowScrollButton(window.scrollY > 0);
   };
+
 
 
   const handleClickOutside = (event) => {
@@ -72,8 +84,6 @@ const Navbar = ({ isHomeSection }) => {
     setNavOpen(!navOpen);
   };
 
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth <= 640); // Define your breakpoint here, e.g., 640px
@@ -91,36 +101,125 @@ const Navbar = ({ isHomeSection }) => {
     };
   }, []);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('dir', i18n.language === 'ar' ? 'ltr' : 'rtl');
+  }, [i18n.language]);
+
+  const navigate = useNavigate();
+
+  const handleSubmenuClick = (submenuItem) => {
+    if (submenuItem.link.startsWith('/')) {
+      navigate(submenuItem.link + `#${submenuItem.id}`);
+    }
+  };
+
   return (
-    <div className='absolute w-full h-[170px] flex justify-between items-center px-4 mt-10 my-2 bg-transparent text-white overflow-hidden' ref={navRef}>
-      
+    <div
+      className='navbar absolute w-full sm:h-[130px] mt-0 sm:mt-0 flex justify-between items-center px-4 my-2 bg-transparent hover:bg-white hover:text-black transition-all duration-300 text-white overflow-visible z-30'
+      ref={navRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="w-full flex flex-col sm:flex-row items-center justify-between">
         {/* Logo for wide screens */}
-        <a href="/home">
-        <img
-          src={MyLogo}
-          alt="Logo"
-          className="hidden sm:block w-32 h-auto mt-2 sm:w-52 mx-4 sm:mx-20"
-        />
+        <a href="/">
+          <img
+            src={isHovered ? MyLogo2 : MyLogo}
+            alt="Logo"
+            className="hidden sm:block w-32 h-auto mt-2 sm:w-52 mx-4 sm:mx-20"
+          />
         </a>
         {/* Logo for small screens */}
         <div className="block sm:hidden mt-2">
           <img
-            src={MyLogo}
+            src={isHovered ? MyLogo2 : MyLogo}
             alt="Logo"
             className="w-32 h-auto mx-auto"
           />
         </div>
-        <div className={i18n.language === 'ar' ? 'rtl' : 'ltr'}>
-          <div className='space-x-2 mt-2 text-white'>
-            <button className='text-lg font-alga' onClick={() => changeLanguage('en')}>English /</button>
-            <button className='text-lg font-alga' onClick={() => changeLanguage('ar')}>العربية</button>
+        <div>
+        <div className='space-x-2 mt-2'>
+            <div className="language-dropdown">
+              <button className="language-dropdown-button">
+                {i18n.language.toUpperCase()}
+              </button>
+              <div className="language-dropdown-content cursor-pointer">
+                <a onClick={() => i18n.changeLanguage('en')}>EN</a>
+                <a onClick={() => i18n.changeLanguage('ar')}>AR</a>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex flex-1 justify-center sm:justify-center mt-2 sm:mt-0">
-          <ul className='flex flex-wrap sm:flex-nowrap justify-center text-lg md:text-xl font-alga space-x-4'>
-            {links.map((link) => (
-              <li key={link.key} className="relative">
+          <ul className='flex flex-wrap sm:flex-nowrap justify-center text-lg sm:text-xl font-alga space-x-4'>
+            
+            <li
+              key='services'
+              className="relative group"
+              onMouseEnter={() => setHoveredSubmenu('services')}
+              onMouseLeave={() => setHoveredSubmenu(null)}
+            >
+              <ScrollLink
+                to='services'
+                smooth={true}
+                duration={500}
+                className="hover:underline cursor-pointer"
+                activeClass="active"
+                spy={true}
+              >
+                {t('nav.services')}
+              </ScrollLink>
+              {hoveredSubmenu === 'services' && (
+                <div className="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg z-50">
+                  {links.find(link => link.key === 'services').submenu.map((submenuItem) => (
+                    <div
+                      key={submenuItem.key}
+                      onClick={() => handleSubmenuClick(submenuItem)}
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:shadow-md cursor-pointer"
+                    >
+                      {t(`ser.${submenuItem.key}`)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </li>
+            <li
+              key='work'
+              className="relative group"
+              onMouseEnter={() => setHoveredSubmenu('work')}
+              onMouseLeave={() => setHoveredSubmenu(null)}
+            >
+              <ScrollLink
+                to='work'
+                smooth={true}
+                duration={500}
+                className="hover:underline cursor-pointer"
+                activeClass="active"
+                spy={true}
+              >
+                {t('nav.work')}
+              </ScrollLink>
+              {hoveredSubmenu === 'work' && (
+                <div className="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg z-50">
+                  {links.find(link => link.key === 'work').submenu.map((submenuItem) => (
+                    <div
+                      key={submenuItem.key}
+                      onClick={() => handleSubmenuClick(submenuItem)}
+                      className="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:shadow-md cursor-pointer"
+                    >
+                      {t(`pro.${submenuItem.key}`)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </li>
+            {links.filter(link => link.key !== 'services' && link.key !== 'work').map((link) => (
+              <li
+                key={link.key}
+                className="relative group"
+                onMouseEnter={() => setHoveredSubmenu(link.key)}
+                onMouseLeave={() => setHoveredSubmenu(null)}
+              >
                 <ScrollLink
                   to={link.id}
                   smooth={true}
@@ -131,6 +230,19 @@ const Navbar = ({ isHomeSection }) => {
                 >
                   {t(`nav.${link.key}`)}
                 </ScrollLink>
+                {link.submenu.length > 0 && hoveredSubmenu === link.key && (
+                  <div className="absolute left-0 mt-0 w-48 bg-white rounded-md shadow-lg z-50">
+                    {link.submenu.map((submenuItem) => (
+                      <div
+                        key={submenuItem.key}
+                        onClick={() => handleSubmenuClick(submenuItem)}
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-200 hover:shadow-md cursor-pointer"
+                      >
+                        {t(`ser.${submenuItem.key}`)}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -140,12 +252,12 @@ const Navbar = ({ isHomeSection }) => {
       <div className='flex items-start sm:space-x-6 mx-4 ml-2 sm:mx-32'>
         {isSmallScreen ? null : (
           <>
-            <FaShoppingBag className="text-white ml-4 text-lg sm:text-xl cursor-pointer" size={20} />
-            <FaSearch className="text-white text-lg sm:text-xl cursor-pointer" size={20} />
+            <FaShoppingBag className={`ml-4 text-lg sm:text-xl cursor-pointer transition-colors duration-300 ${isHovered ? 'text-black' : 'text-white'}`} size={20} />
+            <FaSearch className={`text-lg sm:text-xl cursor-pointer transition-colors duration-300 ${isHovered ? 'text-black' : 'text-white'}`} size={20} />
           </>
         )}
         <button
-          className='text-white text-lg sm:text-xl cursor-pointer'
+          className={`text-lg sm:text-xl cursor-pointer transition-colors duration-300 ${isHovered ? 'text-black' : 'text-white'}`}
           size={24}
           onClick={handleNavToggle}
         >
