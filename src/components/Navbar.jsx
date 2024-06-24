@@ -46,8 +46,8 @@ const Navbar = ({ isHomeSection }) => {
             { id: 'slide', key: 'title6', name: 'Rubber', link: '/ProService'  }, // New link for Rubber
         ],
     },
-    { id: 'blog', key: 'blog', name: 'Blog', submenu: [] },
-    { id: 'contact', key: 'contact', name: 'Contact', submenu: [] },
+    { id: 'Blog', key: 'blog', name: 'Blog', submenu: [] },
+    { id: 'Contact', key: 'contact', name: 'Contact', submenu: [] },
 ];
 
 
